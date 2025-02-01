@@ -2,32 +2,31 @@ import os
 from launch import LaunchDescription
 from launch.substitutions import (
     Command,
-    LaunchConfiguration,
     PathJoinSubstitution,
     FindExecutable
 )
 from launch_ros.substitutions import FindPackageShare
-
-from launch_ros.parameter_descriptions import ParameterValue
+e
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import (
     get_package_share_directory,
     get_package_prefix,
 )
 from launch.actions import (
-    AppendEnvironmentVariable,
     IncludeLaunchDescription,
 )
-
 from launch_ros.actions import Node
+
 
 description_pkg = "mobile_robot_description"
 xacro_filename = "mobile_robot.urdf.xacro"
-def generate_launch_description():
 
+def generate_launch_description():
     # Path to xacro file
     xacro_file = os.path.join(get_package_share_directory(description_pkg), 'urdf', xacro_filename)
+    # Path to world file
     world = os.path.join(get_package_share_directory(description_pkg), 'worlds', 'custom_world.sdf')
+    # Path to ROS gz_sim package
     ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
     # Get URDF via xacro
@@ -49,13 +48,6 @@ def generate_launch_description():
     # Environment Variable
     os.environ["GZ_SIM_RESOURCE_PATH"] = os.path.join(get_package_prefix(description_pkg), "share")
     
-
-
-    # Environment Variable
-    # set_env_vars_resources = AppendEnvironmentVariable(
-    #         'GZ_SIM_RESOURCE_PATH',
-    #         os.path.join(get_package_share_directory(description_pkg)))
-
     # robot_state_publisher
     robot_state_publisher = Node(
         package="robot_state_publisher",
@@ -74,6 +66,7 @@ def generate_launch_description():
         launch_arguments={'gz_args': ['-r ', world], 'on_exit_shutdown': 'true'}.items()
     )
     
+    # gazebo_ros_spawner	
     start_gazebo_ros_spawner_cmd = Node(
         package='ros_gz_sim',
         executable='create',
@@ -88,10 +81,7 @@ def generate_launch_description():
         output='screen',
     )
 
-            
-
     return LaunchDescription([
-        # set_env_vars_resources,
         robot_state_publisher,
         gz_cmd,
         start_gazebo_ros_spawner_cmd,
