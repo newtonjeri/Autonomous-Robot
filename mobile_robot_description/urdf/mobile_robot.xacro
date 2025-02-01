@@ -1,0 +1,465 @@
+<?xml version="1.0" ?>
+<robot name="mobile_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="4.165113628650796e-06 0.02588707927115077 -0.004097141774192208" rpy="0 0 0"/>
+    <mass value="2.1479557811007264"/>
+    <inertia ixx="0.017182" iyy="0.071938" izz="0.086976" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="paint_metallic_silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LidarHolder1">
+  <inertial>
+    <origin xyz="0.015804511129251686 0.03514639979720871 0.019369872402762806" rpy="0 0 0"/>
+    <mass value="0.37541853710379985"/>
+    <inertia ixx="0.000745" iyy="0.000374" izz="0.000605" ixy="0.0" iyz="0.0" ixz="0.000101"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.30383 0.009113 0.017217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/LidarHolder_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.30383 0.009113 0.017217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/LidarHolder_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LidarHolder2">
+  <inertial>
+    <origin xyz="-0.015804902804203214 -0.035146241254900235 0.01936987240276325" rpy="0 0 0"/>
+    <mass value="0.37541853710379985"/>
+    <inertia ixx="0.000745" iyy="0.000374" izz="0.000605" ixy="0.0" iyz="0.0" ixz="-0.000101"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.29617 -0.060887 0.017217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/LidarHolder_v1_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="0.29617 -0.060887 0.017217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/LidarHolder_v1_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lidar1">
+  <inertial>
+    <origin xyz="0.009638192294889492 3.794968745678834e-06 0.03203134563452798" rpy="0 0 0"/>
+    <mass value="1.644794790117091"/>
+    <inertia ixx="0.001184" iyy="0.001199" izz="0.00078" ixy="1e-06" iyz="0.0" ixz="-5.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.34016 -0.026087 0.02483" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Lidar_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber_soft"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.34016 -0.026087 0.02483" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Lidar_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lidar2">
+  <inertial>
+    <origin xyz="-0.00963858396984113 -3.6364264360995435e-06 0.03203134563452855" rpy="0 0 0"/>
+    <mass value="1.644794790117091"/>
+    <inertia ixx="0.001184" iyy="0.001199" izz="0.00078" ixy="1e-06" iyz="0.0" ixz="5.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3325 -0.025687 0.02483" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Lidar_v1_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber_soft"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3325 -0.025687 0.02483" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Lidar_v1_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="CameraHolder">
+  <inertial>
+    <origin xyz="-0.0028762693305350306 7.92710617356085e-08 0.03431879570232893" rpy="0 0 0"/>
+    <mass value="0.008772362848130984"/>
+    <inertia ixx="8e-06" iyy="6e-06" izz="2e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.30183 -0.025887 -0.022283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/CameraHolder_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque8210543"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.30183 -0.025887 -0.022283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/CameraHolder_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="IntelRealsense_D435_Multibody">
+  <inertial>
+    <origin xyz="0.012083247005288789 -0.0017176616378805597 -0.00026729286230678384" rpy="0 0 0"/>
+    <mass value="0.0448008806050122"/>
+    <inertia ixx="2.8e-05" iyy="4e-06" izz="2.8e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.30133 -0.025887 -0.102283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/IntelRealsense_D435_Multibody_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque202209238"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.30133 -0.025887 -0.102283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/IntelRealsense_D435_Multibody_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheelbracket_1">
+  <inertial>
+    <origin xyz="-1.9582307592136416e-07 -0.004772997905408721 1.1656628540537839e-07" rpy="0 0 0"/>
+    <mass value="0.049388743686028615"/>
+    <inertia ixx="5e-06" iyy="1.9e-05" izz="1.7e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19383 -0.140887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Wheelbracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19383 -0.140887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Wheelbracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheelbracket_2">
+  <inertial>
+    <origin xyz="-1.9585173963165836e-07 0.004773156447613891 1.1656628535160196e-07" rpy="0 0 0"/>
+    <mass value="0.049388743686028615"/>
+    <inertia ixx="5e-06" iyy="1.9e-05" izz="1.7e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19383 0.089113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Wheelbracket_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19383 0.089113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/Wheelbracket_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_wheel">
+  <inertial>
+    <origin xyz="-5.128158228312474e-06 0.026005348189964833 -2.6552614371962158e-05" rpy="0 0 0"/>
+    <mass value="1.2161031585645365"/>
+    <inertia ixx="0.001054" iyy="0.001161" izz="0.001054" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19383 -0.141887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="stainless_steel_polished"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19383 -0.141887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_wheel">
+  <inertial>
+    <origin xyz="-5.128158229367186e-06 -0.025994651810035158 -2.6552614371413985e-05" rpy="0 0 0"/>
+    <mass value="1.2161031585645365"/>
+    <inertia ixx="0.001054" iyy="0.001161" izz="0.001054" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19383 0.089113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="stainless_steel_polished"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19383 0.089113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_rear_wheel">
+  <inertial>
+    <origin xyz="-5.1281582968132344e-06 0.026005348189965943 -2.655261437073224e-05" rpy="0 0 0"/>
+    <mass value="1.2161031585645365"/>
+    <inertia ixx="0.001054" iyy="0.001161" izz="0.001054" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.18617 -0.140887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="stainless_steel_polished"/>
+  </visual>
+  <collision>
+    <origin xyz="0.18617 -0.140887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_rear_wheel">
+  <inertial>
+    <origin xyz="-5.128158297507124e-06 -0.02599465181003413 -2.6552614371335923e-05" rpy="0 0 0"/>
+    <mass value="1.2161031585645365"/>
+    <inertia ixx="0.001054" iyy="0.001161" izz="0.001054" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.18617 0.089113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="stainless_steel_polished"/>
+  </visual>
+  <collision>
+    <origin xyz="0.18617 0.089113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_v3_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tyre1">
+  <inertial>
+    <origin xyz="-1.9583740731854427e-07 7.953336139676637e-08 1.1656628770735644e-07" rpy="0 0 0"/>
+    <mass value="0.0610343816894878"/>
+    <inertia ixx="8.4e-05" iyy="0.000134" izz="8.4e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19383 -0.167887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber_soft"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19383 -0.167887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tyre2">
+  <inertial>
+    <origin xyz="-1.95837408317745e-07 7.95333614800331e-08 1.1656628824512072e-07" rpy="0 0 0"/>
+    <mass value="0.0610343816894878"/>
+    <inertia ixx="8.4e-05" iyy="0.000134" izz="8.4e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19383 0.115113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber_soft"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19383 0.115113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tyre3">
+  <inertial>
+    <origin xyz="-1.9583747581930488e-07 7.95333626180117e-08 1.1656628890951981e-07" rpy="0 0 0"/>
+    <mass value="0.0610343816894878"/>
+    <inertia ixx="8.4e-05" iyy="0.000134" izz="8.4e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.18617 -0.166887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber_soft"/>
+  </visual>
+  <collision>
+    <origin xyz="0.18617 -0.166887 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tyre4">
+  <inertial>
+    <origin xyz="-1.9583747651319428e-07 7.953336242372266e-08 1.1656628833012217e-07" rpy="0 0 0"/>
+    <mass value="0.0610343816894878"/>
+    <inertia ixx="8.4e-05" iyy="0.000134" izz="8.4e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.18617 0.115113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber_soft"/>
+  </visual>
+  <collision>
+    <origin xyz="0.18617 0.115113 0.009717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/tyre_v2_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 1" type="fixed">
+  <origin xyz="0.30383 -0.009113 -0.017217" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="LidarHolder1"/>
+</joint>
+
+<joint name="Rigid 2" type="fixed">
+  <origin xyz="-0.29617 0.060887 -0.017217" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="LidarHolder2"/>
+</joint>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="0.03633 0.0352 -0.007613" rpy="0 0 0"/>
+  <parent link="LidarHolder1"/>
+  <child link="Lidar1"/>
+</joint>
+
+<joint name="Rigid 4" type="fixed">
+  <origin xyz="-0.03633 -0.0352 -0.007613" rpy="0 0 0"/>
+  <parent link="LidarHolder2"/>
+  <child link="Lidar2"/>
+</joint>
+
+<joint name="Rigid 5" type="fixed">
+  <origin xyz="0.30183 0.025887 0.022283" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="CameraHolder"/>
+</joint>
+
+<joint name="Rigid 6" type="fixed">
+  <origin xyz="-0.0005 0.0 0.08" rpy="0 0 0"/>
+  <parent link="CameraHolder"/>
+  <child link="IntelRealsense_D435_Multibody"/>
+</joint>
+
+<joint name="left_steer_joint" type="revolute">
+  <origin xyz="0.19383 0.140887 -0.009717" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheelbracket_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.047198" lower="-1.047198" effort="100" velocity="100"/>
+</joint>
+
+<joint name="right_steer_joint" type="revolute">
+  <origin xyz="0.19383 -0.089113 -0.009717" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheelbracket_2"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.047198" lower="-1.047198" effort="100" velocity="100"/>
+</joint>
+
+<joint name="left_front_wheel_joint" type="continuous">
+  <origin xyz="0.0 0.001 0.0" rpy="0 0 0"/>
+  <parent link="Wheelbracket_1"/>
+  <child link="left_front_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_front_wheel_joint" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="Wheelbracket_2"/>
+  <child link="right_front_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_rear_wheel_joint" type="continuous">
+  <origin xyz="-0.18617 0.140887 -0.009717" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_rear_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_rear_wheel_joint" type="continuous">
+  <origin xyz="-0.18617 -0.089113 -0.009717" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_rear_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 23" type="fixed">
+  <origin xyz="0.0 0.026 0.0" rpy="0 0 0"/>
+  <parent link="left_front_wheel"/>
+  <child link="tyre1"/>
+</joint>
+
+<joint name="Rigid 24" type="fixed">
+  <origin xyz="0.0 -0.026 0.0" rpy="0 0 0"/>
+  <parent link="right_front_wheel"/>
+  <child link="tyre2"/>
+</joint>
+
+<joint name="Rigid 25" type="fixed">
+  <origin xyz="0.0 0.026 0.0" rpy="0 0 0"/>
+  <parent link="left_rear_wheel"/>
+  <child link="tyre3"/>
+</joint>
+
+<joint name="Rigid 26" type="fixed">
+  <origin xyz="0.0 -0.026 0.0" rpy="0 0 0"/>
+  <parent link="right_rear_wheel"/>
+  <child link="tyre4"/>
+</joint>
+
+</robot>

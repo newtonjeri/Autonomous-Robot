@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mobile_robot">
+    
+<xacro:include filename="$(find mobile_robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.xacro" />
+<xacro:include filename="$(find mobile_robot_description)/urdf/camera.xacro" />
+<xacro:include filename="$(find mobile_robot_description)/urdf/lidar.xacro" />
+
+<joint name="camera_joint" type="fixed">
+    <parent link="IntelRealsense_D435_Multibody"/>
+    <child link="Camera"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+</joint>
+
+<joint name="lidar1_joint" type="fixed">
+    <parent link="Lidar1"/>
+    <child link="Lidar1_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+</joint>
+
+<joint name="lidar2_joint" type="fixed">
+    <parent link="Lidar2"/>
+    <child link="Lidar2_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+</joint>
+
+</robot>

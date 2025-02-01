@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lidar">
+    
+    <link name="Lidar1_link"/>    
+
+    <link name="Lidar2_link"/>
+    
+    
+</robot>
