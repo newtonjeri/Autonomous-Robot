@@ -1,9 +1,55 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lidar">
-    
-    <link name="Lidar1_link"/>    
 
+    <!-- Lidar1 -->
+    <link name="Lidar1_link"/>
+    <gazebo reference="Lidar1_link">
+        <sensor name="lidar1" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>12</max>
+                </range>
+            </lidar>
+            <topic>lidar1_scan</topic>
+            <frame>Lidar1_link</frame>
+        </sensor>
+    </gazebo>
+
+    <!-- Lidar2 -->
     <link name="Lidar2_link"/>
-    
-    
+    <gazebo reference="Lidar2_link">
+        <sensor name="lidar2" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>12</max>
+                </range>
+            </lidar>
+            <topic>lidar2_scan</topic>
+            <frame>Lidar2_link</frame>
+        </sensor>
+    </gazebo>
+
+
 </robot>
