@@ -22,15 +22,13 @@ from launch_ros.actions import (
     SetParameter,
 )
 
-
 description_pkg = "mobile_robot_description"
 xacro_filename = "mobile_robot.urdf.xacro"
-
 def generate_launch_description():
     # Path to xacro file
     xacro_file = os.path.join(get_package_share_directory(description_pkg), 'urdf', xacro_filename)
 
-    world_file = PathJoinSubstitution([description_pkg, "worlds", "custom_world.sdf"])
+    world_file = PathJoinSubstitution([description_pkg, "worlds", "empty_world.sdf"])
     world_cfg = LaunchConfiguration("world")
     declare_world_arg = DeclareLaunchArgument(
         "world", default_value=["-r ", world_file], description="SDF world file"
@@ -51,7 +49,7 @@ def generate_launch_description():
         ]
     )
 
-    robot_description = {"robot_description": robot_description_content}
+    robot_description = {"robot_description": robot_description_content, "use_sim_time": True}
 
     # Environment Variable
     os.environ["GZ_SIM_RESOURCE_PATH"] = os.path.join(get_package_prefix(description_pkg), "share")
@@ -64,6 +62,7 @@ def generate_launch_description():
         output="screen",
         parameters=[robot_description],
         arguments=[xacro_file],
+
     )
 
     # gazebo
@@ -77,8 +76,9 @@ def generate_launch_description():
                 ]
             )
         ),
-        launch_arguments={"gz_args": world_cfg}.items(),
+        launch_arguments={'gz_args': ['-r ', world_cfg], 'on_exit_shutdown': 'true'}.items()
     )
+
     
     # gazebo_ros_spawner	
     start_gazebo_ros_spawner_cmd = Node(
@@ -94,13 +94,7 @@ def generate_launch_description():
         ],
         output='screen',
     )
-
-    diff_drive_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["diff_cont"],
-    )
-
+    
     # Bridge
     bridge_params = os.path.join(get_package_share_directory(description_pkg),'config','gz_bridge.yaml')
     ros_gz_bridge = Node(
@@ -110,9 +104,34 @@ def generate_launch_description():
             '--ros-args',
             '-p',
             f'config_file:={bridge_params}',
-        ]
+        ],
+        output='screen'
     )
 
+    # Image bridge
+    image_bridge = Node(
+        package="ros_gz_image",
+        executable="image_bridge",
+        arguments=["/camera/image_raw"],
+        output='screen'
+    )
+
+    rviz2 = Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', PathJoinSubstitution([FindPackageShare("mobile_robot_description"), "rviz", "mobile_robot.rviz"])],
+            output='screen'
+        )
+    
+    joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher',
+        output='screen'
+    )  
+    
+   
     return LaunchDescription([
         # Sets use_sim_time for all nodes started below (doesn't work for nodes started from Gazebo)
         SetParameter(name="use_sim_time", value=True),
@@ -120,5 +139,8 @@ def generate_launch_description():
         robot_state_publisher,
         gz_sim,
         start_gazebo_ros_spawner_cmd,
-        diff_drive_spawner,
+        ros_gz_bridge,
+        image_bridge,
+        joint_state_publisher,
+        rviz2
     ])
