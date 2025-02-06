@@ -1,58 +1,40 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mobile_robot">
-    <ros2_control name="GazeboSystem" type="system">
+    <ros2_control name="GazeboSimSystem" type="system">
         <hardware>
             <plugin>gz_ros2_control/GazeboSimSystem</plugin>
         </hardware>
-        <joint name="left_front_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
-            </command_interface>
+        <!-- <joint name="left_front_wheel_joint">
+            <command_interface name="velocity"/>
             <state_interface name="velocity"/>
             <state_interface name="position"/>
         </joint>
         <joint name="right_front_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
-            </command_interface>
+            <command_interface name="velocity"/>
             <state_interface name="velocity"/>
             <state_interface name="position"/>
-        </joint>
+        </joint> -->
         <joint name="left_rear_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
-            </command_interface>
+            <command_interface name="velocity"/>
             <state_interface name="velocity"/>
             <state_interface name="position"/>
         </joint>
         <joint name="right_rear_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
-            </command_interface>
+            <command_interface name="velocity"/>
             <state_interface name="velocity"/>
             <state_interface name="position"/>
         </joint>
 
-        <!-- <joint name="left_steer_joint">
-            <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
-            </command_interface>
+        <joint name="left_steer_joint">
+            <command_interface name="position"/>
             <state_interface name="velocity"/>
             <state_interface name="position"/>
         </joint>
         <joint name="right_steer_joint">
-            <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
-            </command_interface>
+            <command_interface name="position"/>
             <state_interface name="velocity"/>
             <state_interface name="position"/>
-        </joint> -->
+        </joint>
 
 
     </ros2_control>
