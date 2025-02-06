@@ -15,7 +15,7 @@
         <steering_limit>0.5</steering_limit>
         <wheel_base>1.0</wheel_base>
         <wheel_separation>0.21</wheel_separation>
-        <wheel_radius>0.1</wheel_radius>
+        <wheel_radius>0.05</wheel_radius>
         <min_velocity>-1</min_velocity>
         <max_velocity>1</max_velocity>
         <min_acceleration>-3</min_acceleration>
