@@ -3,7 +3,8 @@
 
 <link name="base_link">
   <inertial>
-    <origin xyz="4.165113628650796e-06 0.02588707927115077 -0.004097141774192208" rpy="0 0 0"/>
+    <!-- <origin xyz="0.0 0.02588707927115077 -0.004097141774192208" rpy="0 0 0"/> -->
+    <origin xyz="0.0 0.02588707927115077 0.01097141774192208" rpy="0 0 0"/>
     <mass value="2.1479557811007264"/>
     <inertia ixx="0.017182" iyy="0.071938" izz="0.086976" ixy="0.0" iyz="0.0" ixz="1e-06"/>
   </inertial>
@@ -315,6 +316,9 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference_link = "tyre">
+
+</gazebo>
 
 <link name="tyre3">
   <inertial>
@@ -415,6 +419,8 @@
   <parent link="Wheelbracket_1"/>
   <child link="left_front_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="200.0" velocity="20.0"/>
+  <dynamics friction="0.0001"/>
 </joint>
 
 <joint name="right_front_wheel_joint" type="continuous">
@@ -422,6 +428,8 @@
   <parent link="Wheelbracket_2"/>
   <child link="right_front_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="200.0" velocity="20.0"/>
+  <dynamics friction="1.0"/>
 </joint>
 
 <joint name="left_rear_wheel_joint" type="continuous">
@@ -429,6 +437,8 @@
   <parent link="base_link"/>
   <child link="left_rear_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="200.0" velocity="20.0"/>
+  <dynamics damping="1.0" friction="1.0"/>
 </joint>
 
 <joint name="right_rear_wheel_joint" type="continuous">
@@ -436,6 +446,8 @@
   <parent link="base_link"/>
   <child link="right_rear_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="200.0" velocity="20.0"/>
+  <dynamics damping="1.0" friction="1.0"/>
 </joint>
 
 <joint name="Rigid 23" type="fixed">
