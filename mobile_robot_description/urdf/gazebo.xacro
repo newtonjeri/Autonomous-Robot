@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="gazebo_properties">
+    <xacro:macro name="link_friction" params="name">
+        <gazebo reference="${name}">
+            <surface>
+                <friction>
+                    <ode>
+                        <mu1>1.2</mu1>
+                        <mu2>1.2</mu2>
+                        <kp>1e15</kp>
+                        <kd>1e13</kd>
+                    </ode>
+                </friction>
+                <bounce>
+                    <restitution_coefficient>0.01</restitution_coefficient>
+                    <threshold>0</threshold>
+                </bounce>
+                <contact>
+                    <ode>
+                        <max_vel>10</max_vel>
+                    </ode>
+                </contact>
+            </surface>
+        </gazebo>
+    </xacro:macro>
+
+    <xacro:link_friction name = "tyre1"/>
+    <xacro:link_friction name = "tyre2"/>
+    <xacro:link_friction name = "tyre3"/>
+    <xacro:link_friction name = "tyre4"/>
+
+</robot>
