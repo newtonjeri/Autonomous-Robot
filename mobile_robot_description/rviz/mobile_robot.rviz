@@ -8,6 +8,7 @@ Panels:
         - /Status1
         - /Grid1
         - /RobotModel1
+        - /RobotModel1/Status1
       Splitter Ratio: 0.5
     Tree Height: 756
   - Class: rviz_common/Selection
@@ -27,7 +28,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Visualization Manager:
   Class: ""
   Displays:
@@ -46,7 +47,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 1000
+      Plane Cell Count: 100
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
@@ -63,7 +64,11 @@ Visualization Manager:
       Enabled: true
       Links:
         All Links Enabled: true
-        CameraHolder_v1_1:
+        Camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        CameraHolder:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -71,27 +76,35 @@ Visualization Manager:
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
-        IntelRealsense_D435_Multibody_v1_1:
+        IntelRealsense_D435_Multibody:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        LidarHolder_v1_1:
+        Lidar1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        LidarHolder_v1_2:
+        Lidar1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        Lidar2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        Lidar_v1_1:
+        Lidar2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LidarHolder1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        Lidar_v1_2:
+        LidarHolder2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -112,42 +125,46 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        tyre_v2_1:
+        left_front_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        tyre_v2_2:
+        left_rear_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        tyre_v2_3:
+        right_front_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        tyre_v2_4:
+        right_rear_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_v3_1:
+        sim_world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tyre1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_v3_2:
+        tyre2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_v3_3:
+        tyre3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_v3_4:
+        tyre4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -160,9 +177,77 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /lidar1_scan
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /lidar2_scan
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
-    Background Color: 231; 231; 231
+    Background Color: 234; 232; 244
     Fixed Frame: base_link
     Frame Rate: 30
   Name: root
@@ -206,7 +291,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.9968564510345459
+      Distance: 6.3129353523254395
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -221,10 +306,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.430398166179657
+      Pitch: 0.785398006439209
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.7003979682922363
+      Yaw: 0.785398006439209
     Saved: ~
 Window Geometry:
   Displays:
@@ -242,5 +327,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1908
-  X: -32
-  Y: -32
+  X: 0
+  Y: 0
