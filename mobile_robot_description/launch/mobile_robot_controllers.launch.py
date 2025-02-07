@@ -40,6 +40,23 @@ def generate_launch_description():
              'forward_position_controller'],
         output='screen'
     )
+
+    # ackermann_steering_controller = ExecuteProcess(
+    #     cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+    #          'ackermann_steering_cont'],
+    #     output='screen'
+    # )
+
+    ackermann_steering_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "ackermann_steering_cont",
+            "--param-file",
+            robot_controllers
+        ],
+        output='screen',
+    )
     # diff_drive_spawner = Node(
     #     package="controller_manager",
     #     executable="spawner",
@@ -56,7 +73,8 @@ def generate_launch_description():
     return LaunchDescription([
         control_node,
         joint_state_broadcaster,
-        load_forward_velocity_controller,
-        load_forward_position_controller,
+        # load_forward_velocity_controller,
+        # load_forward_position_controller,
+        ackermann_steering_controller,
         # diff_drive_spawner,
     ])

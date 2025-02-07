@@ -140,7 +140,7 @@ def generate_launch_description():
         gz_sim,
         start_gazebo_ros_spawner_cmd,
         ros_gz_bridge,
-        image_bridge,
+        # image_bridge,
         joint_state_publisher,
         rviz2
     ])
