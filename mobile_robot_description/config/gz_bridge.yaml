@@ -6,19 +6,19 @@
   direction: GZ_TO_ROS
 
 # gz topic published by Sensors plugin
-# - ros_topic_name: "lidar1_scan"
-#   gz_topic_name: "lidar1_scan"
-#   ros_type_name: "sensor_msgs/msg/LaserScan"
-#   gz_type_name: "gz.msgs.LaserScan"
-#   direction: GZ_TO_ROS
+- ros_topic_name: "lidar1_scan"
+  gz_topic_name: "lidar1_scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
 
-# - ros_topic_name: "lidar2_scan"
-#   gz_topic_name: "lidar2_scan"
-#   ros_type_name: "sensor_msgs/msg/LaserScan"
-#   gz_type_name: "gz.msgs.LaserScan"
-#   direction: GZ_TO_ROS
+- ros_topic_name: "lidar2_scan"
+  gz_topic_name: "lidar2_scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
 
-# # gz topic published by Sensors plugin (Camera)
+# gz topic published by Sensors plugin (Camera)
 # - ros_topic_name: "camera/camera_info"
 #   gz_topic_name: "camera/camera_info"
 #   ros_type_name: "sensor_msgs/msg/CameraInfo"
@@ -27,11 +27,11 @@
 
 
 # gz topic published by DiffDrive plugin
-- ros_topic_name: "ackermann_steering_cont/odometry"
-  gz_topic_name: "odom"
-  ros_type_name: "nav_msgs/msg/Odometry"
-  gz_type_name: "gz.msgs.Odometry"
-  direction: GZ_TO_ROS
+# - ros_topic_name: "ackermann_steering_cont/odometry"
+#   gz_topic_name: "odom"
+#   ros_type_name: "nav_msgs/msg/Odometry"
+#   gz_type_name: "gz.msgs.Odometry"
+#   direction: GZ_TO_ROS
 
 # gz topic published by DiffDrive plugin
 - ros_topic_name: "tf"
