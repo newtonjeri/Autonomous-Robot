@@ -28,7 +28,7 @@ def generate_launch_description():
     # Path to xacro file
     xacro_file = os.path.join(get_package_share_directory(description_pkg), 'urdf', xacro_filename)
 
-    world_file = PathJoinSubstitution([description_pkg, "worlds", "empty_world.sdf"])
+    world_file = PathJoinSubstitution([description_pkg, "worlds", "obstacles_world.sdf"])
     world_cfg = LaunchConfiguration("world")
     declare_world_arg = DeclareLaunchArgument(
         "world", default_value=["-r ", world_file], description="SDF world file"
