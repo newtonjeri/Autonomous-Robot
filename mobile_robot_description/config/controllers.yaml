@@ -53,7 +53,7 @@ ackermann_steering_cont:
     rear_wheels_names: ["left_rear_wheel_joint", "right_rear_wheel_joint"]
     front_wheels_names: ["left_steer_joint", "right_steer_joint"]
     open_loop: false
-    base_frame_id: "base_link"
+    base_frame_id: "sim_world"
     odom_frame_id: "odom"
     enable_odom_tf: true
     reduce_wheel_speed_until_steering_reached: true
