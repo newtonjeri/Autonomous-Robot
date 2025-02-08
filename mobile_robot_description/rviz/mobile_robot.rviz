@@ -199,7 +199,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.05
       Style: Flat Squares
       Topic:
         Depth: 5
@@ -233,7 +233,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.05
       Style: Flat Squares
       Topic:
         Depth: 5
@@ -248,7 +248,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 234; 232; 244
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
