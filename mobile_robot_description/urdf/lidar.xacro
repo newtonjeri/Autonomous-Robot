@@ -5,7 +5,7 @@
     <link name="Lidar1_link"/>
     <gazebo reference="Lidar1_link">
         <sensor name="lidar1" type="gpu_lidar">
-            <gz_frame_id>Lidar1_link</gz_frame_id>
+            <gz_frame_id>sim_world</gz_frame_id>
             <topic>lidar1_scan</topic>
             <update_rate>30</update_rate>
 
@@ -28,7 +28,7 @@
                     <min>0.3</min>
                     <max>12</max>
                 </range>
-                <frame_id>/Lidar1_link</frame_id>
+                <frame_id>Lidar1_link</frame_id>
             </lidar>
             <alwaysOn>true</alwaysOn>
             <visualize>true</visualize>
@@ -36,10 +36,10 @@
     </gazebo>
 
     <!-- Lidar2 -->
-    <link name="Lidar2_link"/>
+    <!-- <link name="Lidar2_link"/>
     <gazebo reference="Lidar2_link">
         <sensor name="lidar2" type="gpu_lidar">
-            <gz_frame_id>Lidar2_link</gz_frame_id>
+            <gz_frame_id>sim_world</gz_frame_id>
             <topic>lidar2_scan</topic>
             <update_rate>30</update_rate>
 
@@ -62,12 +62,12 @@
                     <min>0.3</min>
                     <max>12</max>
                 </range>
-                <frame_id>/Lidar2_link</frame_id>
+                <frame_id>sim_world</frame_id>
             </lidar>
             <alwaysOn>true</alwaysOn>
             <visualize>true</visualize>
         </sensor>
-    </gazebo>
+    </gazebo> -->
 
 
 </robot>

@@ -6,25 +6,25 @@
 <xacro:include filename="$(find mobile_robot_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.xacro" />
 <!-- <xacro:include filename="$(find mobile_robot_description)/urdf/camera.xacro" /> -->
-<!-- <xacro:include filename="$(find mobile_robot_description)/urdf/lidar.xacro" /> -->
-<!-- <xacro:include filename="$(find mobile_robot_description)/urdf/diff_drive.xacro" /> -->
+<xacro:include filename="$(find mobile_robot_description)/urdf/lidar.xacro" />
+<xacro:include filename="$(find mobile_robot_description)/urdf/diff_drive.xacro" />
 <!-- <xacro:include filename="$(find mobile_robot_description)/urdf/ackermann_steering.xacro" /> -->
 <xacro:include filename="$(find mobile_robot_description)/urdf/gazebo.xacro" />
 <xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.ros2_control.xacro" />
 
-<!-- <link name="sim_world"/>
+<link name="sim_world"/>
 
 <joint name="world_joint" type="fixed">
     <parent link="sim_world"/>
     <child link="base_link"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-</joint> -->
+</joint>
 
 <!-- <joint name="camera_joint" type="fixed">
     <parent link="IntelRealsense_D435_Multibody"/>
     <child link="Camera"/>
     <origin xyz="0.01 0.0 0.00" rpy="0.0 0.0 0.0"/>
-</joint>
+</joint> -->
 
 <joint name="lidar1_joint" type="fixed">
     <parent link="Lidar1"/>
@@ -32,7 +32,7 @@
     <origin xyz="0.015 0.0 0.06" rpy="0.0 0.0 0.0"/>
 </joint>
 
-<joint name="lidar2_joint" type="fixed">
+<!-- <joint name="lidar2_joint" type="fixed">
     <parent link="Lidar2"/>
     <child link="Lidar2_link"/>
     <origin xyz="-0.015 0.0 0.06" rpy="0.0 0.0 0.0"/>
