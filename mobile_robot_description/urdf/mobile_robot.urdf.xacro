@@ -12,11 +12,19 @@
 <xacro:include filename="$(find mobile_robot_description)/urdf/gazebo.xacro" />
 <xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.ros2_control.xacro" />
 
-<link name="sim_world"/>
+<link name="base_link"/>
 
-<joint name="world_joint" type="fixed">
-    <parent link="sim_world"/>
-    <child link="base_link"/>
+<joint name="base_footprint_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+</joint>
+
+<link name="base_footprint"/>
+
+<joint name="chassis_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
 </joint>
 
