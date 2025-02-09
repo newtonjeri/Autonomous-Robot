@@ -76,7 +76,7 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <mesh>
-              <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
+              <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
             </mesh>
           </geometry>
         </collision>
@@ -84,7 +84,7 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <mesh>
-              <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
+              <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
             </mesh>
           </geometry>
         </visual>
@@ -342,7 +342,7 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_4'>
-      <pose>-5.4118285179138184 5.5544600486755371 0.5 0 0 0</pose>
+      <pose>-7.5 0 0.5 0 0 0</pose>
       <link name='box_link'>
         <inertial>
           <inertia>
@@ -359,7 +359,7 @@
         <collision name='box_collision'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>0.1 11 1</size>
             </box>
           </geometry>
           <surface>
@@ -373,7 +373,7 @@
         <visual name='box_visual'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>0.1 11 1</size>>
             </box>
           </geometry>
           <material>
@@ -389,7 +389,7 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_5'>
-      <pose>7.5379653826481601 5.4168406435615752 0.5 0 0 0</pose>
+      <pose>7.5 0 0.5 0 0 0</pose>
       <link name='box_link'>
         <inertial>
           <inertia>
@@ -406,7 +406,7 @@
         <collision name='box_collision'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>0.1 11 1</size>
             </box>
           </geometry>
           <surface>
@@ -420,7 +420,7 @@
         <visual name='box_visual'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>0.1 11 1</size>
             </box>
           </geometry>
           <material>
@@ -436,7 +436,7 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_6'>
-      <pose>7.5966016842203672 -4.5189405232761874 0.5 0 0 0</pose>
+      <pose>0.0 5.5 0.5 0 0 0</pose>
       <link name='box_link'>
         <inertial>
           <inertia>
@@ -453,7 +453,7 @@
         <collision name='box_collision'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>15 0.1 1</size>
             </box>
           </geometry>
           <surface>
@@ -467,7 +467,7 @@
         <visual name='box_visual'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>15 0.1 1</size>
             </box>
           </geometry>
           <material>
@@ -483,7 +483,7 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_7'>
-      <pose>-5.3507884216310497 -4.5525630040355729 0.5 0 0 0</pose>
+      <pose>0.0 -5.5 0.5 0 0 0</pose>
       <link name='box_link'>
         <inertial>
           <inertia>
@@ -500,7 +500,7 @@
         <collision name='box_collision'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>15 0.1 1</size>
             </box>
           </geometry>
           <surface>
@@ -514,7 +514,7 @@
         <visual name='box_visual'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>15 0.1 1</size>
             </box>
           </geometry>
           <material>
