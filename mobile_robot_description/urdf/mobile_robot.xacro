@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="mobile_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<link name="base_link">
+<link name="chassis">
   <inertial>
     <!-- <origin xyz="0.0 0.02588707927115077 -0.004097141774192208" rpy="0 0 0"/> -->
     <origin xyz="0.0 0.02588707927115077 0.01097141774192208" rpy="0 0 0"/>
@@ -11,14 +11,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://mobile_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://mobile_robot_description/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="paint_metallic_silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://mobile_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://mobile_robot_description/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -364,13 +364,13 @@
 
 <joint name="Rigid 1" type="fixed">
   <origin xyz="0.30383 -0.009113 -0.017217" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="chassis"/>
   <child link="LidarHolder1"/>
 </joint>
 
 <joint name="Rigid 2" type="fixed">
   <origin xyz="-0.29617 0.060887 -0.017217" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="chassis"/>
   <child link="LidarHolder2"/>
 </joint>
 
@@ -388,7 +388,7 @@
 
 <joint name="Rigid 5" type="fixed">
   <origin xyz="0.30183 0.025887 0.022283" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="chassis"/>
   <child link="CameraHolder"/>
 </joint>
 
@@ -400,7 +400,7 @@
 
 <joint name="left_steer_joint" type="revolute">
   <origin xyz="0.19383 0.140887 -0.009717" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="chassis"/>
   <child link="Wheelbracket_1"/>
   <axis xyz="0.0 0.0 1.0"/>
   <limit upper="1.047198" lower="-1.047198" effort="100" velocity="100"/>
@@ -408,7 +408,7 @@
 
 <joint name="right_steer_joint" type="revolute">
   <origin xyz="0.19383 -0.089113 -0.009717" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="chassis"/>
   <child link="Wheelbracket_2"/>
   <axis xyz="0.0 0.0 1.0"/>
   <limit upper="1.047198" lower="-1.047198" effort="100" velocity="100"/>
@@ -434,7 +434,7 @@
 
 <joint name="left_rear_wheel_joint" type="continuous">
   <origin xyz="-0.18617 0.140887 -0.009717" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="chassis"/>
   <child link="left_rear_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
   <limit effort="200.0" velocity="20.0"/>
@@ -443,7 +443,7 @@
 
 <joint name="right_rear_wheel_joint" type="continuous">
   <origin xyz="-0.18617 -0.089113 -0.009717" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="chassis"/>
   <child link="right_rear_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
   <limit effort="200.0" velocity="20.0"/>
