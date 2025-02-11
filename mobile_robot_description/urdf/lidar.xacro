@@ -4,10 +4,10 @@
     <!-- Lidar1 -->
     <link name="Lidar1_link"/>
     <gazebo reference="Lidar1_link">
-        <sensor name="lidar1" type="gpu_lidar">
-            <gz_frame_id>base_link</gz_frame_id>
+        <sensor name="Lidar1_link" type="gpu_lidar">
+            <gz_frame_id>Lidar1_link</gz_frame_id>
             <topic>lidar1_scan</topic>
-            <update_rate>60</update_rate>
+            <update_rate>100</update_rate>
 
             <lidar>
                 <scan>
@@ -28,7 +28,7 @@
                     <min>0.3</min>
                     <max>12</max>
                 </range>
-                <frame_id>base_link</frame_id>
+                <!-- <frame_id>odom</frame_id> -->
             </lidar>
             <alwaysOn>true</alwaysOn>
             <visualize>true</visualize>
