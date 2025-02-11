@@ -3,9 +3,6 @@ controller_manager:
     update_rate: 1000
     use_sim_time: true
 
-    # diff_drive_controller:
-    #   type: diff_drive_controller/DiffDriveController
-
     # Arckermann steering controller
     ackermann_steering_cont:
       type: ackermann_steering_controller/AckermannSteeringController
@@ -13,55 +10,58 @@ controller_manager:
     joint_broad:
       type: joint_state_broadcaster/JointStateBroadcaster  
 
-    forward_velocity_controller:
-      type: forward_command_controller/ForwardCommandController
+    # diff_drive_controller:
+    #   type: diff_drive_controller/DiffDriveController
 
-    forward_position_controller:
-      type: forward_command_controller/ForwardCommandController
+    # forward_velocity_controller:
+    #   type: forward_command_controller/ForwardCommandController
 
-forward_velocity_controller:
-  ros__parameters:
-    joints:
-      # - left_front_wheel_joint
-      # - right_front_wheel_joint
-      - left_rear_wheel_joint
-      - right_rear_wheel_joint      
-    interface_name: velocity
-    command_interfaces:
-      - velocity
-    state_interfaces:
-      - position
-      - velocity
+    # forward_position_controller:
+    #   type: forward_command_controller/ForwardCommandController
 
-forward_position_controller:
-  ros__parameters:
-    joints:
-      - left_steer_joint
-      - right_steer_joint
-    interface_name: position
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-      - velocity
+# forward_velocity_controller:
+#   ros__parameters:
+#     joints:
+#       # - left_front_wheel_joint
+#       # - right_front_wheel_joint
+#       - left_rear_wheel_joint
+#       - right_rear_wheel_joint      
+#     interface_name: velocity
+#     command_interfaces:
+#       - velocity
+#     state_interfaces:
+#       - position
+#       - velocity
+
+# forward_position_controller:
+#   ros__parameters:
+#     joints:
+#       - left_steer_joint
+#       - right_steer_joint
+#     interface_name: position
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#       - velocity
 
 ackermann_steering_cont:
   ros__parameters:
-    in_chained_mode: true
-    reference_timeout: 2.0
+    reference_timeout: 1.0
     front_steering: true
-    rear_wheels_names: ["left_rear_wheel_joint", "right_rear_wheel_joint"]
-    front_wheels_names: ["left_steer_joint", "right_steer_joint"]
-    open_loop: false
-    base_frame_id: "sim_world"
+    # rear_wheels_names: ["left_rear_wheel_joint", "right_rear_wheel_joint"]
+    # front_wheels_names: ["left_steer_joint", "right_steer_joint"]
+    rear_wheels_names: ["right_rear_wheel_joint", "left_rear_wheel_joint"]
+    front_wheels_names: ["right_steer_joint", "left_steer_joint"]
+    open_loop: true
+    base_frame_id: "base_link"
     odom_frame_id: "odom"
     enable_odom_tf: true
     reduce_wheel_speed_until_steering_reached: true
     use_stamped_vel: false
-    position_feedback: true
 
-    front_wheel_track: 0.281
-    rear_wheel_track: 0.281
+    front_wheel_track: 0.287
+    rear_wheel_track: 0.287
     front_wheels_radius: 0.05
     rear_wheels_radius: 0.05
     wheelbase: 0.38
