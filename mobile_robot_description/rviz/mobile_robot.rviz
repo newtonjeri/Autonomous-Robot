@@ -6,9 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Grid1
-        - /RobotModel1
-        - /RobotModel1/Status1
+        - /TF1/Frames1
+        - /TF1/Frames1/Lidar11
+        - /TF1/Frames1/Lidar11/Position1
       Splitter Ratio: 0.5
     Tree Height: 756
   - Class: rviz_common/Selection
@@ -35,7 +35,7 @@ Visualization Manager:
     - Alpha: 0.5
       Cell Size: 1
       Class: rviz_default_plugins/Grid
-      Color: 0; 0; 0
+      Color: 160; 160; 164
       Enabled: true
       Line Style:
         Line Width: 0.029999999329447746
@@ -47,7 +47,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 100
+      Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
@@ -64,10 +64,6 @@ Visualization Manager:
       Enabled: true
       Links:
         All Links Enabled: true
-        Camera:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         CameraHolder:
           Alpha: 1
           Show Axes: false
@@ -95,10 +91,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        Lidar2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         LidarHolder1:
           Alpha: 1
           Show Axes: false
@@ -120,7 +112,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -145,10 +145,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        sim_world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         tyre1:
           Alpha: 1
           Show Axes: false
@@ -177,6 +173,92 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        CameraHolder:
+          Value: false
+        IntelRealsense_D435_Multibody:
+          Value: false
+        Lidar1:
+          Value: false
+        Lidar1_link:
+          Value: false
+        Lidar2:
+          Value: false
+        LidarHolder1:
+          Value: false
+        LidarHolder2:
+          Value: false
+        Wheelbracket_1:
+          Value: false
+        Wheelbracket_2:
+          Value: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: true
+        chassis:
+          Value: false
+        left_front_wheel:
+          Value: false
+        left_rear_wheel:
+          Value: false
+        odom:
+          Value: true
+        right_front_wheel:
+          Value: false
+        right_rear_wheel:
+          Value: false
+        tyre1:
+          Value: false
+        tyre2:
+          Value: false
+        tyre3:
+          Value: false
+        tyre4:
+          Value: false
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        odom:
+          base_link:
+            base_footprint:
+              {}
+            chassis:
+              CameraHolder:
+                IntelRealsense_D435_Multibody:
+                  {}
+              LidarHolder1:
+                Lidar1:
+                  Lidar1_link:
+                    {}
+              LidarHolder2:
+                Lidar2:
+                  {}
+              Wheelbracket_1:
+                left_front_wheel:
+                  tyre1:
+                    {}
+              Wheelbracket_2:
+                right_front_wheel:
+                  tyre2:
+                    {}
+              left_rear_wheel:
+                tyre3:
+                  {}
+              right_rear_wheel:
+                tyre4:
+                  {}
+      Update Interval: 0
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -199,7 +281,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.05
+      Size (m): 0.019999999552965164
       Style: Flat Squares
       Topic:
         Depth: 5
@@ -211,43 +293,9 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/LaserScan
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 0
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: LaserScan
-      Position Transformer: XYZ
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.05
-      Style: Flat Squares
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /lidar2_scan
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
   Enabled: true
   Global Options:
-    Background Color: 234; 232; 244
+    Background Color: 48; 48; 48
     Fixed Frame: odom
     Frame Rate: 30
   Name: root
@@ -290,26 +338,21 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz_default_plugins/Orbit
-      Distance: 6.3129353523254395
+      Angle: -1.5709999799728394
+      Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
-      Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
-      Focal Shape Fixed Size: true
-      Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.785398006439209
+      Scale: 161.75787353515625
       Target Frame: <Fixed Frame>
-      Value: Orbit (rviz)
-      Yaw: 0.785398006439209
+      Value: TopDownOrtho (rviz_default_plugins)
+      X: 0
+      Y: 0
     Saved: ~
 Window Geometry:
   Displays:
