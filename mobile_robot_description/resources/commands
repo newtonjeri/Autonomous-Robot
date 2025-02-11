@@ -1,0 +1,7 @@
+1. ros2 launch mobile_robot_description mobile_robot_gazebo_sim.launch.py
+2. ros2 launch mobile_robot_description mobile_robot_controllers.launch.py
+3. ros2 launch slam_toolbox online_async_launch.py slam_params_file:=src/Autonomous-Robot/mobile_robot_description/config/mapper_params_online_async.yaml use_sim_time:=true
+4. ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=src/Autonomous-Robot/mobile_robot_description/maps/map_save.yaml use_sim_time:=true
+5. ros2 run nav2_util lifecycle_bringup map_server
+6. ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=true
+7. ros2 run nav2_util lifecycle_bringup amcl
