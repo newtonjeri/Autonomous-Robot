@@ -7,7 +7,7 @@
 <xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.xacro" />
 <!-- <xacro:include filename="$(find mobile_robot_description)/urdf/camera.xacro" /> -->
 <xacro:include filename="$(find mobile_robot_description)/urdf/lidar.xacro" />
-<xacro:include filename="$(find mobile_robot_description)/urdf/diff_drive.xacro" />
+<!-- <xacro:include filename="$(find mobile_robot_description)/urdf/diff_drive.xacro" /> -->
 <!-- <xacro:include filename="$(find mobile_robot_description)/urdf/ackermann_steering.xacro" /> -->
 <xacro:include filename="$(find mobile_robot_description)/urdf/gazebo.xacro" />
 <xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.ros2_control.xacro" />
@@ -35,9 +35,10 @@
 </joint> -->
 
 <joint name="lidar1_joint" type="fixed">
-    <parent link="Lidar1"/>
+    <parent link="chassis"/>
     <child link="Lidar1_link"/>
-    <origin xyz="0.015 0.0 0.06" rpy="0.0 0.0 0.0"/>
+    <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+    <!-- <origin xyz="0.3402 0.0261 -0.0248" rpy="0.0 0.0 0.0"/> -->
 </joint>
 
 <!-- <joint name="lidar2_joint" type="fixed">
