@@ -1,11 +1,17 @@
 from launch_ros.actions import Node
 from launch import LaunchDescription
-from launch.substitutions import PathJoinSubstitution
+from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch_ros.substitutions import FindPackageShare
-from launch.actions import ExecuteProcess
+from launch.actions import ExecuteProcess, DeclareLaunchArgument
 
 controllers_pkg = 'mobile_robot_description'
 def generate_launch_description():
+
+   
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    declare_use_sim_time_arg = DeclareLaunchArgument(
+        "use_sim_time", default_value="true", description="Use simulation time"
+    )
     robot_controllers = PathJoinSubstitution(
         [
             FindPackageShare(controllers_pkg),
@@ -17,7 +23,7 @@ def generate_launch_description():
     control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[robot_controllers],
+        parameters=[robot_controllers, {use_sim_time: True}], 
         output="both",
     )
         
@@ -55,8 +61,16 @@ def generate_launch_description():
             "--param-file",
             robot_controllers
         ],
+        parameters=[{use_sim_time: True}],
         output='screen',
     )
+
+    # ackermann_steering_controller = Node(
+    #    package="controller_manager",
+    #    executable="spawner",
+    #    parameters=[{use_sim_time: True}],
+    #    arguments=["ackermann_steering_cont"],
+    # )
     # diff_drive_spawner = Node(
     #     package="controller_manager",
     #     executable="spawner",
@@ -71,7 +85,8 @@ def generate_launch_description():
     # )
 
     return LaunchDescription([
-        control_node,
+        declare_use_sim_time_arg,
+        # control_node,
         joint_state_broadcaster,
         # load_forward_velocity_controller,
         # load_forward_position_controller,
