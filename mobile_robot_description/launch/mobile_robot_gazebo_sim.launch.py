@@ -30,8 +30,13 @@ def generate_launch_description():
 
     world_file = PathJoinSubstitution([description_pkg, "worlds", "obstacles_world.sdf"])
     world_cfg = LaunchConfiguration("world")
+    use_sim_time = LaunchConfiguration("use_sim_time")
+
     declare_world_arg = DeclareLaunchArgument(
         "world", default_value=["-r ", world_file], description="SDF world file"
+    )
+    declare_use_sim_time_arg = DeclareLaunchArgument(
+        "use_sim_time", default_value="true", description="Use simulation time"
     )
 
     # Get URDF via xacro
@@ -49,7 +54,7 @@ def generate_launch_description():
         ]
     )
 
-    robot_description = {"robot_description": robot_description_content, "use_sim_time": True}
+    robot_description = {"robot_description": robot_description_content, use_sim_time: True}
 
     # Environment Variable
     os.environ["GZ_SIM_RESOURCE_PATH"] = os.path.join(get_package_prefix(description_pkg), "share")
@@ -133,14 +138,13 @@ def generate_launch_description():
     
    
     return LaunchDescription([
-        # Sets use_sim_time for all nodes started below (doesn't work for nodes started from Gazebo)
-        SetParameter(name="use_sim_time", value=True),
+        declare_use_sim_time_arg,
         declare_world_arg,
         robot_state_publisher,
         gz_sim,
         start_gazebo_ros_spawner_cmd,
         ros_gz_bridge,
         # image_bridge,
-        joint_state_publisher,
+        # joint_state_publisher,
         rviz2
     ])
