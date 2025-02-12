@@ -71,25 +71,25 @@ def generate_launch_description():
     #    parameters=[{use_sim_time: True}],
     #    arguments=["ackermann_steering_cont"],
     # )
-    # diff_drive_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=[
-    #         "diff_drive_controller",
-    #         "--param-file",
-    #         robot_controllers,
-    #         # "--controller-ros-args",
-    #         # "-r /diff_drive_controller/cmd_vel:=/cmd_vel",
-    #     ],
-    #     output='screen',
-    # )
+    diff_drive_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "diff_drive_controller",
+            "--param-file",
+            robot_controllers,
+            # "--controller-ros-args",
+            # "-r /diff_drive_controller/cmd_vel:=/cmd_vel",
+        ],
+        output='screen',
+    )
 
     return LaunchDescription([
         declare_use_sim_time_arg,
-        # control_node,
+        control_node,
         joint_state_broadcaster,
         # load_forward_velocity_controller,
         # load_forward_position_controller,
-        ackermann_steering_controller,
-        # diff_drive_spawner,
+        # ackermann_steering_controller,
+        diff_drive_spawner,
     ])
