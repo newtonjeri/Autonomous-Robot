@@ -76,8 +76,8 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <mesh>
-              <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
-              <!-- <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri> -->
+              <!-- <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri> -->
+              <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
             </mesh>
           </geometry>
         </collision>
@@ -85,8 +85,8 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <mesh>
-              <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
-              <!-- <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri> -->
+              <!-- <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri> -->
+              <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
             </mesh>
           </geometry>
         </visual>
