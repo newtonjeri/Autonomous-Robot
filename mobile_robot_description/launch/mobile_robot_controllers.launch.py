@@ -90,6 +90,6 @@ def generate_launch_description():
         joint_state_broadcaster,
         # load_forward_velocity_controller,
         # load_forward_position_controller,
-        # ackermann_steering_controller,
-        diff_drive_spawner,
+        ackermann_steering_controller,
+        # diff_drive_spawner,
     ])
