@@ -113,14 +113,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    # Image bridge
-    image_bridge = Node(
-        package="ros_gz_image",
-        executable="image_bridge",
-        arguments=["/camera/image_raw"],
-        output='screen'
-    )
-
     rviz2 = Node(
             package='rviz2',
             executable='rviz2',
@@ -144,7 +136,5 @@ def generate_launch_description():
         gz_sim,
         start_gazebo_ros_spawner_cmd,
         ros_gz_bridge,
-        # image_bridge,
-        # joint_state_publisher,
         rviz2
     ])
