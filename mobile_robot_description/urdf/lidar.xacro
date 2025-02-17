@@ -6,7 +6,8 @@
     <gazebo reference="Lidar1_link">
         <sensor name="Lidar1_link" type="gpu_lidar">
             <gz_frame_id>Lidar1_link</gz_frame_id>
-            <topic>lidar1_scan</topic>
+            <!-- <topic>lidar1_scan</topic> -->
+            <topic>scan</topic>
             <update_rate>30</update_rate>
 
             <lidar>
