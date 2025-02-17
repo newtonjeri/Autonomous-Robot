@@ -68,46 +68,6 @@
       <pose>0 0 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
-    <model name='ionic_mascot'>
-      <static>true</static>
-      <pose>0 0.3 0 0 0 0</pose>
-      <link name='base_link'>
-        <collision name='collision'>
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <!-- <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri> -->
-              <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <visual name='visual'>
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <!-- <uri>file:///home/nixon/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri> -->
-              <uri>file:///home/ubuntu24-04/.gz/fuel/fuel.gazebosim.org/openrobotics/models/ionic mascot/1/meshes/ionic_mascot.glb</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>1.0617300271987915 1.6131778955459595 0 0 0 0</pose>
-      <self_collide>false</self_collide>
-    </model>
     <model name='box'>
       <pose>0.49898400902748108 -1.5204299688339233 0.53792780637741089 0 0 0</pose>
       <link name='box_link'>
