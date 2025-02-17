@@ -43,13 +43,8 @@
         <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
             <parameters>$(find mobile_robot_description)/config/controllers.yaml</parameters>
             <ros>
-                <!-- <remapping>ackermann_steering_cont/reference:=cmd_vel_nav</remapping> -->
                 <remapping>ackermann_steering_cont/odometry:=odom</remapping>
                 <remapping>ackermann_steering_cont/tf_odometry:=tf</remapping>
-
-                <!-- <remapping>diff_drive_controller/cmd_vel:=cmd_vel</remapping>
-                <remapping>diff_drive_controller/odom:=odom</remapping> -->
-                <!-- <remapping>diff_drive_controller/tf_odometry:=tf</remapping> -->
             </ros> 
         </plugin>
     </gazebo>
