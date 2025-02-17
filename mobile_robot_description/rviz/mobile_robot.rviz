@@ -7,8 +7,6 @@ Panels:
         - /Global Options1
         - /Status1
         - /TF1/Frames1
-        - /TF1/Frames1/Lidar11
-        - /TF1/Frames1/Lidar11/Position1
       Splitter Ratio: 0.5
     Tree Height: 756
   - Class: rviz_common/Selection
@@ -208,6 +206,8 @@ Visualization Manager:
           Value: false
         left_rear_wheel:
           Value: false
+        map:
+          Value: true
         odom:
           Value: true
         right_front_wheel:
@@ -228,6 +228,8 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
+        map:
+          {}
         odom:
           base_link:
             base_footprint:
@@ -236,10 +238,11 @@ Visualization Manager:
               CameraHolder:
                 IntelRealsense_D435_Multibody:
                   {}
+              Lidar1_link:
+                {}
               LidarHolder1:
                 Lidar1:
-                  Lidar1_link:
-                    {}
+                  {}
               LidarHolder2:
                 Lidar2:
                   {}
@@ -289,14 +292,60 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /lidar1_scan
+        Value: /scan
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Alpha: 0.699999988079071
+      Binary representation: false
+      Binary threshold: 100
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map_updates
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Binary representation: false
+      Binary threshold: 100
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/costmap
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/costmap_updates
+      Use Timestamp: false
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -348,7 +397,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 161.75787353515625
+      Scale: 78.71859741210938
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz_default_plugins)
       X: 0
@@ -370,5 +419,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1908
-  X: 0
-  Y: 0
+  X: -32
+  Y: -32
