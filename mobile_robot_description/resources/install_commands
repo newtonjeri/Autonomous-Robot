@@ -1,3 +1,5 @@
+sudo apt-get install ros-jazzy-joint-state-publisher
+sudo apt-get install ros-jazzy-robot-state-publisher-gui
 sudo apt-get install ros-jazzy-ros-gz
 sudo apt-get install ros-jazzy-ros-gz-bridge
 sudo apt-get install ros-jazzy-gz-ros2-control
