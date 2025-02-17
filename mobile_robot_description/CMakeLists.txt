@@ -26,6 +26,16 @@ install(DIRECTORY meshes urdf launch rviz worlds config maps
 )
 
 ################################################################################
+# Python executables
+################################################################################
+install(
+  PROGRAMS
+    scripts/ackermann_twist_publisher.py
+  DESTINATION
+    lib/${PROJECT_NAME}
+)
+
+################################################################################
 # Macro for ament package
 ################################################################################
 ament_package()
